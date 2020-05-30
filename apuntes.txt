@@ -1,0 +1,51 @@
+Notas de la clase.
+Un protocolo especifica reglas en la comunicación, en este caso, entre dos computadoras.
+No necesarimamente entre computadores sino también puede ser entre móviles.
+El protocolo fue creado exclusivamente para la web.
+HTTP significa Protocolo de Transferencia de Hipertexto.
+
+Los verbos HTTP implican acciones
+GET: Solicitar datos o algun recurso.
+     Se usa para traer información desde el servidor.
+     Se puede traer una lista o un recurso en específico.    
+HEAD: Traer headers, como una petición GET pero sin contenido.
+      Se puede considerar una parte pequeña del GET.
+      No nos retorna información, pero todo lo demás está igual que una solicitud GET(Status y Headers).
+      Esto es útil a la hora de utilizar APIs cuando necesitamos saber si lo que vamos a enviar está
+      correcto y puede ser procesado.
+POST: Se usa para mandar información hacia el servidor.
+      Enviar datos a un recurso para la creación.
+      (por ejemplo un Curso, un comentario en la plataforma de Platzi Especificamente)
+PUT: Reemplazar por completo un recurso.
+     (Verbo que se utiliza para actualizar la información de un recurso)
+     Verbo que se utliza la información de todo un recurso.
+PATCH: Verbo que se utiliza para actualizar información, pero 
+       solo una parte del recurso, todo.
+       (por ejemplo si quisierams actualizar el título de un recurso).
+DELETE: Eliminar un recurso.
+
+HTTP Status Code: Los codigos de estado sirven para describir el estado de la petición hecha al servidor.
+                  Nos indican como está siento procesada la solicitud, en que parte va, si está bien hecha
+                  si fue correctamente procesada, si hay que hacer algo más 
+                  o si es que hay un error.
+Los estado 1xx: Indican que la petición fue recibida y el servidor sigue trabajando en el proceso.
+Los estados 2xx Indica que la peticion fue recibida, aceptada y procesada correctamente.
+Los estados 3xx Indican que hay que tomar acciones adicionales para completar la solicitud. Por lo general estos códigos indican redirección.
+                En los APIs casi nunca se utiliza una redirección, porque teóricamente los APIs no contienen
+                estados, esto significa que toda la información necesaria para analizarla y mostrarla
+                está contenida en una solicitud, no se guarda un estado en el servidor como una sesión.    
+Los estados 4xx Indican errores del lado del cliente. Indica que se hizo mal una solicitud, faltan datos, headers o cualquier otro error que puede ocurrir.
+Los estados 5xx Indican errores del servidor. Indica que fallo completamente la ejecución de una petición.
+
+Los codigos mas usados son los siguientes:
+200: (OK)                       Todo esta bien, este es el status que se retorna cuando una solicitud GET esta correcta y toda la información me la trajo correctamente.
+201: (CREATED)                  una solicitud POST fue hecha correctamente el recurso se creo y se guardo.
+204: (NO CONTENT)               La solicitud se proceso correctamente pero no nos devuelve información
+                                (esto se utiliza muchísimo cuando se realiza una solicitud con el verbo DELETE).
+400: (BAD REQUEST)              Es un bad request, algo esta malo con nuestra solicitud, por lo general nos especifica cuales fueron los errores que tuvimos.
+401: (UNAUTHORIZED)             Significa un Autorized, lo que significa que antes de poder hacer una solicitud tenemos que autenticarnos con el servidor.
+                                (tenemos que decir esto somos nosotros y no somos cualquier otra persona)
+403: (FORBIDDEN)                Significa que no tengo acceso a ese recurso aunque este autenticado
+404: (NOT FOUND)                No existe el recurso.
+500: (Interal Server Error)     Es un Internal Server Error: cuando la solicitud no pudo ser procesada y el servidor nos da un error.
+                                Puede decirnos que pasa pero por lo general nosotros no tenemos control sobre los errores 5XX.
