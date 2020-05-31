@@ -3,6 +3,11 @@ version: '3'
 services:
   db:
     image: postgres
+    #environment:
+    #  POSTGRES_PASSWORD: 123456
+    #  PGDATA: /Postgres
+    #ports:
+    #  - "5432:5432"
   web:
     build: .
     command: tail -F anything
